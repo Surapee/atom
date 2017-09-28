@@ -90,19 +90,19 @@ export default class Color {
   }
 
   isEqual (color) {
-    if (this === color) {
-      return true
-    }
-
-    if (!(color instanceof Color)) {
-      color = Color.parse(color)
-    }
-
-    if (color == null) {
+    
+    if (color != null) {
+      if (!(color instanceof Color)) {
+        color = Color.parse(color)
+      }
+      if (this === color) {
+        return true
+      } else {
+        return false
+      }
+    } else {
       return false
     }
-
-    return color.red === this.red && color.blue === this.blue && color.green === this.green && color.alpha === this.alpha
   }
 
   clone () {
